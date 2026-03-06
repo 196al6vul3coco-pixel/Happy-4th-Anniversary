@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>VTuber Ultimate Fanpage</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+<canvas id="sakura"></canvas>
+
+<section class="hero">
+<img src="teeth/teeth.jpeg" class="avatar" id="vtuber-avatar">
+<h1 class="animated">Happy 4th Anniversary</h1>
+<div class="name animated">TCCCCCCCCC</div>
+
+<div class="counter animated">
+Together for <span id="days">0</span> days
+</div>
+
+<div class="countdown animated">
+Next Anniversary Countdown:
+<div id="timer">
+<span id="d">0</span>d 
+<span id="h">0</span>h 
+<span id="m">0</span>m 
+<span id="s">0</span>s
+</div>
+</div>
+</section>
+
+<section class="timeline">
+<h2 class="animated">Milestones</h2>
+<ul>
+<li class="timeline-item">2026-06-01: 出道日</li>
+<li class="timeline-item">2026-07-15: 第一場直播</li>
+<li class="timeline-item">2026-10-01: 粉絲數達10000</li>
+</ul>
+</section>
+
+<section class="gallery">
+<h2 class="animated">Fanart Gallery</h2>
+<div class="grid">
+<img src="teeth/teeth-1.jpeg">
+<img src="teeth/teeth-2.jpeg">
+<img src="teeth/teeth-3.jpeg">
+<img src="teeth/teeth-4.jpeg">
+<img src="teeth/teeth-5.jpeg">
+<img src="teeth/teeth-6.jpeg">
+<img src="teeth/teeth-7.jpeg">
+<img src="teeth/teeth-8.jpeg">
+<img src="teeth/teeth-9.jpeg">
+</div>
+</section>
+
+<section class="interaction">
+<h2 class="animated">Fan Interaction</h2>
+
+<div class="vote">
+<p>Vote for next live content:</p>
+<button class="vote-btn" data-option="Game Stream">Game Stream</button>
+<button class="vote-btn" data-option="Chat Stream">Chat Stream</button>
+<button class="vote-btn" data-option="Special Event">Special Event</button>
+<p>Current Votes:</p>
+<div id="vote-results"></div>
+</div>
+
+<!-- 留言板區塊 -->
+<section class="message-wall">
+  <h2>粉絲留言牆</h2>
+  <div class="msg-wall-wrapper">
+    <!-- 左箭頭 -->
+    <button class="arrow-btn" id="left-arrow">&#10094;</button>
+
+    <!-- 留言卡片容器 -->
+    <div id="messages">
+      <!-- 小卡片留言由 JS 生成 -->
+    </div>
+
+    <!-- 右箭頭 -->
+    <button class="arrow-btn" id="right-arrow">&#10095;</button>
+  </div>
+
+  <!-- 留言輸入區 -->
+  <div class="msg-input">
+    <input type="text" id="fan-name" placeholder="你的暱稱 (最多20字)">
+    <input type="text" id="fan-msg" placeholder="留言內容 (最多100字)">
+    <button id="send-msg">送出留言</button>
+    <button id="clear-msg">清空留言</button>
+  </div>
+
+  <!-- 總留言數 -->
+  <div class="msg-stats">
+    總留言數: <span id="total-msg">0</span>
+  </div>
+</section>
+
+</section>
+
+<div id="lightbox">
+<button id="prev">&#10094;</button>
+<img id="lightbox-img">
+<button id="next">&#10095;</button>
+</div>
+
+<footer>
+<div class="share">
+Share:
+<button onclick="share('twitter')">Twitter</button>
+<button onclick="share('facebook')">Facebook</button>
+<button onclick="share('line')">Line</button>
+</div>
+Made with ❤️ by fans
+</footer>
+
+<audio id="bgm" src="audio/bgm.mp3" loop></audio>
+<audio id="sakuraAudio" src="audio/sakura.mp3" loop></audio>
+<audio id="clickAudio" src="audio/click.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>

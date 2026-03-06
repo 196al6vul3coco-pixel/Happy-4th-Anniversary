@@ -1,0 +1,342 @@
+/* =========================
+   全局樣式
+========================= */
+body{
+  margin:0;
+  font-family:sans-serif;
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
+.hero{
+  padding:100px 20px;
+}
+
+.avatar{
+  width:220px;
+  border-radius:50%;
+  box-shadow:0 0 40px #ff8bd1;
+  cursor:pointer;
+}
+
+h1{
+  font-size:50px;
+  margin:20px;
+}
+
+.name{
+  font-size:30px;
+  color:#ffb3e6;
+}
+
+.counter{
+  margin-top:30px;
+  font-size:22px;
+}
+
+.countdown{
+  margin-top:20px;
+  font-size:24px;
+}
+
+#timer{
+  font-size:32px;
+  margin-top:10px;
+}
+
+.timeline{
+  padding:50px 20px;
+  background:rgba(255,255,255,0.05);
+}
+
+.timeline-item{
+  opacity:0;
+  transform:translateX(-50px);
+  transition:all 0.6s ease;
+  margin:10px 0;
+}
+
+.timeline-item.show{
+  opacity:1;
+  transform:translateX(0);
+}
+
+.gallery{
+  padding:80px 20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+  max-width:900px;
+  margin:auto;
+}
+
+.grid img{
+  width:100%;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+  object-fit:cover; /* 圖片自適應 */
+}
+
+.grid img:hover{
+  transform:scale(1.05);
+}
+
+#lightbox{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+  flex-direction:row;
+}
+
+#lightbox img{
+  max-width:80%;
+  max-height:80%;
+  border-radius:10px;
+  object-fit:contain; /* 圖片自適應 */
+}
+
+#lightbox button{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:none;
+  border:none;
+  color:white;
+  font-size:60px;
+  cursor:pointer;
+}
+
+#prev{left:10px;}
+#next{right:10px;}
+
+.animated{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.8s ease;
+}
+
+.animated.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.interaction{
+  padding:50px 20px;
+  background:rgba(255,255,255,0.05);
+}
+
+.vote, .message-wall, .stats{
+  margin:20px 0;
+}
+
+.vote-btn{
+  margin:5px;
+  padding:5px 10px;
+  cursor:pointer;
+}
+
+input{
+  padding:5px;
+  margin:5px;
+}
+
+.share button{
+  margin:0 5px;
+  padding:5px 10px;
+  cursor:pointer;
+}
+
+/* =========================
+   留言板區域
+========================= */
+.message-wall{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:40px 20px;
+  background:rgba(255,255,255,0.05);
+  border-radius:15px;
+  margin:30px auto;
+  max-width:1000px;
+}
+
+.message-wall h2{
+  font-size:28px;
+  color:#ffb3e6;
+  margin-bottom:20px;
+}
+
+/* 留言卡片容器置中 */
+.msg-wall-wrapper{
+  position:relative;
+  width:800px;
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* 留言卡片滑動容器 */
+#messages{
+  display:flex;
+  gap:15px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-behavior:smooth;
+  padding:15px 40px; /* 預留箭頭 */
+  width:100%;
+}
+
+/* 左右箭頭 */
+.arrow-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);
+  color:white;
+  border:none;
+  border-radius:50%;
+  font-size:30px;
+  width:40px;
+  height:40px;
+  cursor:pointer;
+  z-index:10;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  transition:0.2s;
+}
+
+.arrow-btn:hover{
+  background:rgba(255,179,230,0.7);
+}
+
+#left-arrow { left:5px; }
+#right-arrow { right:5px; }
+
+/* 留言卡片 */
+.msg-card{
+  background:rgba(0,0,0,0.3);
+  padding:15px;
+  border-radius:10px;
+  width:250px;
+  height:150px;
+  text-align:left;
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.5s ease;
+  flex-shrink:0;
+  overflow-y:auto;
+  box-shadow:0 0 15px rgba(255,179,230,0.3);
+}
+
+/* 圖片自適應卡片 */
+.msg-card img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:5px;
+}
+
+.msg-card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.msg-card:hover{
+  background:rgba(0,0,0,0.5);
+}
+
+.msg-name{
+  font-weight:bold;
+  color:#ffb3e6;
+  font-size:16px;
+  margin-bottom:5px;
+}
+
+.msg-text{
+  font-size:14px;
+  line-height:1.4;
+  word-wrap:break-word;
+}
+
+/* 留言輸入區 */
+.msg-input{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:15px;
+}
+
+.msg-input input{
+  padding:8px;
+  margin:5px;
+  border-radius:5px;
+  border:1px solid #ffb3e6;
+  background:rgba(255,255,255,0.1);
+  color:white;
+}
+
+.msg-input button{
+  padding:8px 12px;
+  margin:5px;
+  border-radius:5px;
+  border:none;
+  background:#ff8bd1;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.msg-input button:hover{
+  background:#ffb3e6;
+}
+
+/* 總留言數 */
+.msg-stats{
+  margin-top:10px;
+  font-size:14px;
+  color:#ffb3e6;
+}
+
+/* =========================
+   響應式
+========================= */
+
+/* 手機版 (小於600px) */
+@media (max-width:600px){
+  #messages{
+    padding:15px 10px;
+  }
+  .msg-card{
+    width:80vw;
+    min-width:200px;
+  }
+}
+
+/* 平板 (601px~900px) */
+@media (max-width:900px) and (min-width:601px){
+  .msg-card{
+    width:45%;
+  }
+}
